@@ -4,14 +4,14 @@ import { ChangeEvent, useState } from 'react'
 
 const Home: NextPage = () => {
   const [counter, setCounter] = useState(0)
-  const [salt, setSalt] = useState(1)
+  const [jump, setJump] = useState(1)
 
-  const inclement = (salt: number) => {
-    setCounter(counter + salt)
+  const inclement = (newJump: number) => {
+    setCounter(counter + newJump)
   }
 
-  const declement = (salt: number) => {
-    setCounter(counter - salt)
+  const declement = (newJump: number) => {
+    setCounter(counter - newJump)
   }
 
   return (
@@ -23,24 +23,24 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="w-screen h-screen flex flex-col gap-4 items-center justify-center">
-        <span className="text-6xl">{counter}</span>
+        <h1 className="text-6xl">{counter}</h1>
         <div className="flex gap-4">
           <button
-            onClick={() => declement(salt)}
+            onClick={() => declement(jump)}
             className="bg-red-500 text-white p-4"
           >
             Decrementar
           </button>
           <input
             type="number"
-            value={salt}
+            value={jump}
             onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setSalt(Number(event.target.value))
+              setJump(Number(event.target.value))
             }
             className="text-xl w-16 text-center border-2 border-slate-600"
           />
           <button
-            onClick={() => inclement(salt)}
+            onClick={() => inclement(jump)}
             className="bg-green-500 text-white p-4"
           >
             Incrementar
